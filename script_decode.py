@@ -49,10 +49,6 @@ for x in all_supported_files:
         # lectura de datos
         quote_a = bytes.fromhex(tmp).decode("ISO-8859-1",errors='ignore')
         quote   = quote_a.replace(';', '\n- ')
-
-        with open('example.txt', 'rb') as f:
-            result = f.readlines()
-
-        if 'first line' in result[0].decode('utf-8'):
-            print('success')
-        
+        my_str_as_bytes = str.encode(quote)
+        with open('result.txt', 'wb') as text_file:
+            text_file.write(my_str_as_bytes)
